@@ -22,7 +22,7 @@ const permisoGet = async (req, res = response) => {
 
     try {
         // Consultar un permiso por ID
-        const permiso = await permisos.findById(id);
+        const permiso = await Permiso.findById(id);
 
         if (!permiso) {
             return res.status(404).json({ mensaje: 'Permiso no encontrado' });
