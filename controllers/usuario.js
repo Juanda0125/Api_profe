@@ -31,10 +31,10 @@ const permisoGet = async(req, res = response) =>{
 
         if (_id) {
             // Si se proporciona un id, realizar una búsqueda por nombre
-            permiso = await permisos.find({ _id: _id });
+            permisos = await Permiso.find({ _id: _id });
         } else {
             // Si no se proporciona un id, consultar todos los clientes
-            permiso = await permisos.find();
+            permisos = await Permiso.find();
         }
 
         res.json({ permisos });
