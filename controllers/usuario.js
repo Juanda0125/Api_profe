@@ -15,7 +15,7 @@ const permisoGet1 = async(req, res = response) =>{
     //const {nombre} = req.query //Desestructuración
 
     //Consultar todos los permisos
-    const permisos = await Permiso.find({ _id: _id })
+    const permisos = await Permiso.find()
 
     res.json({  //Respuesta en JSON
         permisos
@@ -31,10 +31,10 @@ const permisoGet = async(req, res = response) =>{
 
         if (_id) {
             // Si se proporciona un id, realizar una búsqueda por nombre
-            permiso = await Permiso.find({ _id: _id });
+            permiso = await permisos.find({ _id: _id });
         } else {
             // Si no se proporciona un id, consultar todos los clientes
-            permiso = await Permiso.find();
+            permiso = await permisos.find();
         }
 
         res.json({ permisos });
