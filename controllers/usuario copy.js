@@ -4,7 +4,7 @@ const {response} = require('express')
 const Permiso = require('../models/usuario')
 
 //Método GET de la API
-/*
+
 const permisoGet = async(req, res = response) =>{
     //const {nombre} = req.query //Desestructuración
 
@@ -15,8 +15,8 @@ const permisoGet = async(req, res = response) =>{
         permisos
     })   
 }
-*/
 
+/*
 const permisoGet = async (req, res = response) => {
     const { id } = req.params; // Obtener el ID de los parámetros de la URL
 
@@ -34,6 +34,7 @@ const permisoGet = async (req, res = response) => {
         res.status(500).json({ mensaje: 'Error interno del servidor' });
     }
 }
+*/
 
 //Método POST de la api
 const permisoPost = async(req, res) => {
