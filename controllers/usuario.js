@@ -22,6 +22,9 @@ const permisoGet1 = async(req, res = response) =>{
     })   
 }
 
+
+
+
 const permisoGet = async(req, res = response) =>{
     //const {nombre} = req.query //Desestructuración
     const {_id} = req.query;
@@ -64,7 +67,7 @@ const permisoPost = async(req, res) => {
 //Juan Sebastián Granada
 
 //Modifcación
-const permisoPut = async(req, res = response) => {
+const permisoPut1 = async(req, res = response) => {
 
     const {nombre, password, rol, estado} = req.body
     let mensaje = 'Modificación exitosa'
@@ -80,6 +83,35 @@ const permisoPut = async(req, res = response) => {
         msg: mensaje
     })
 }
+
+
+
+
+const permisoPut = async(req, res) => {
+
+    const {ID, nombre, modulo} = req.body
+
+    let mensaje = "Modificación exitosa"
+
+    try {
+        await Permiso.updateMany({_id: _id}, {$set: {
+            ID: ID,
+            nombre: nombre,
+            modulo: modulo
+        }});
+
+    }catch (error) {
+        mensaje = "Se presentaron problemas en la modificación."
+    }
+    res.json({
+        msg: mensaje
+    })
+}
+
+
+
+
+
 
 //Eliminación
 const permisoDelete = async(req, res) => {
