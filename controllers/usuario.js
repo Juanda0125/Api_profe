@@ -8,7 +8,7 @@ const permisoGet = async(req, res = response) =>{
     //const {nombre} = req.query //Desestructuración
 
     //Consultar todos los permisos
-    const permisos = await Permiso.find()
+    const permisos = await permisos.find()
 
     res.json({  //Respuesta en JSON
         permisos
@@ -31,16 +31,15 @@ const permisoPost = async(req, res) => {
     })
 }
 
-//Juan Sebastián Granada
 
 //Modifcación
 const permisoPut = async(req, res = response) => {
 
-    const {nombre, password, rol, estado} = req.body
+    const {ID, nombre, modulo, } = req.body
     let mensaje = 'Modificación exitosa'
     try{
-         await Permiso.findOneAndUpdate({nombre: nombre}, 
-            {password: password, rol:rol, estado:estado})
+         await Permiso.findOneAndUpdate({ID: ID}, 
+            {nombre: nombre, modulo:modulo})
     }
     catch(error){
         mensaje = 'Se presentaron problemas en la modificación.'

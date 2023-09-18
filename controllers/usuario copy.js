@@ -4,15 +4,35 @@ const {response} = require('express')
 const Permiso = require('../models/usuario')
 
 //Método GET de la API
+/*
 const permisoGet = async(req, res = response) =>{
     //const {nombre} = req.query //Desestructuración
 
     //Consultar todos los permisos
-    const permisos = await Permiso.find()
+    const permisos = await permisos.find()
 
     res.json({  //Respuesta en JSON
         permisos
     })   
+}
+*/
+
+const permisoGet = async (req, res = response) => {
+    const { id } = req.params; // Obtener el ID de los parámetros de la URL
+
+    try {
+        // Consultar un permiso por ID
+        const permiso = await permisos.findById(id);
+
+        if (!permiso) {
+            return res.status(404).json({ mensaje: 'Permiso no encontrado' });
+        }
+
+        res.json({ permiso });
+    } catch (error) {
+        console.error('Error al consultar el permiso:', error);
+        res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
 }
 
 //Método POST de la api
@@ -34,11 +54,11 @@ const permisoPost = async(req, res) => {
 //Modifcación
 const permisoPut = async(req, res = response) => {
 
-    const {nombre, password, rol, estado} = req.query
+    const {ID, nombre, modulo} = req.query
     let mensaje = 'Modificación exitosa'
     try{
-         await Permiso.findOneAndUpdate({nombre: nombre}, 
-            {password: password, rol:rol, estado:estado})
+         await Permiso.findOneAndUpdate({ID: ID}, 
+            {nombre: nombre, modulo:modulo})
     }
     catch(error){
         mensaje = 'Se presentaron problemas en la modificación.'
