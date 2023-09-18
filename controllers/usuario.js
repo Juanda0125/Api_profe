@@ -89,7 +89,7 @@ const permisoPut1 = async(req, res = response) => {
 
 const permisoPut = async(req, res) => {
 
-    const {ID, nombre, modulo} = req.body
+    const {_id, ID, nombre, modulo} = req.body
 
     let mensaje = "Modificación exitosa"
 
