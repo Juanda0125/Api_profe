@@ -91,7 +91,7 @@ const permisoPut1 = async(req, res = response) => {
 
 const proveedorPut = async(req, res) => {
 
-    const {_id, ID, nombre, modulo} = req.body
+    const {_id, ID, nombre, direccion, telefono} = req.body
 
     let mensaje = "Modificación exitosa"
 
@@ -99,7 +99,9 @@ const proveedorPut = async(req, res) => {
         await Proveedor.updateMany({_id: _id}, {$set: {
             ID: ID,
             nombre: nombre,
-            modulo: modulo
+            direccion: direccion,
+            telefono: telefono
+        
         }});
 
     }catch (error) {
