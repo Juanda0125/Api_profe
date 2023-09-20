@@ -117,7 +117,7 @@ const productoPut = async(req, res) => {
 const productoDelete = async(req, res) => {
 
 
-    const {_id} = req.query
+    const {_id} = req.body
     let mensaje = 'La eliminiación se efectuó exitosamente.'
 
     try{
