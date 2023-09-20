@@ -94,7 +94,7 @@ const productoPut = async(req, res) => {
     let mensaje = "Modificación exitosa"
 
     try {
-        await Permiso.updateMany({_id: _id}, {$set: {
+        await Producto.updateMany({_id: _id}, {$set: {
             ID: ID,
             nombre: nombre,
             descripcion: descripcion,
