@@ -11,7 +11,7 @@ class Server{
         this.port = process.env.PORT //Capturando variable puerto
         this.permisoPath = '/api/usuario' //Ruta pública
         this.proveedorPath = '/api/proveedor' //Ruta pública
-        this.productoPath = '/api/proveedor' //Ruta pública
+        this.productoPath = '/api/producto' //Ruta pública
         this.middlewares()
         this.conectarDB()
         this.routes()
