@@ -9,6 +9,10 @@ const {response} = require('express')
 
 //Importación de los modelos
 const Producto = require('../models/producto')
+const {generarJWT} = require('../helpers/generar_jwt')
+const jwt = require('jsonwebtoken')
+
+
 
 //Método GET de la API
 const permisoGet1 = async(req, res = response) =>{
@@ -51,10 +55,25 @@ const productoGet = async(req, res = response) =>{
 //Método POST de la api
 const productoPost = async(req, res) => {
     let mensaje = 'Insercion exitosa'
+
+    let token="";
+
+    const {id_producto} = req.body 
+
     const body = req.body //Captura de atributos
+
+
     try {
         const producto = new Producto(body) //Instanciando el objeto
         await producto.save() //Inserta en la colección
+
+        if(id_producto !=""){
+            token= await generarJWT(id_producto);
+            res.cookie('token', token);  
+
+            mensaje += (', el token es: '+token)
+
+        }
     } catch (error) {
         mensaje = error
         console.log(error)
@@ -117,7 +136,7 @@ const productoPut = async(req, res) => {
 const productoDelete = async(req, res) => {
 
 
-    const {_id} = req.body
+    const {_id} = req.query
     let mensaje = 'La eliminiación se efectuó exitosamente.'
 
     try{
