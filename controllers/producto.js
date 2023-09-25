@@ -10,7 +10,7 @@ const {response} = require('express')
 //Importación de los modelos
 const Producto = require('../models/producto')
 const {generarJWT} = require('../helpers/generar_jwt')
-//const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 
 
