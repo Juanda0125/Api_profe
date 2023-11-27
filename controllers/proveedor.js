@@ -96,8 +96,7 @@ const proveedorPut = async(req, res) => {
     let mensaje = "Modificación exitosa"
 
     try {
-        await Proveedor.updateMany({_id: _id}, {$set: {
-            ID: ID,
+        await Proveedor.updateMany({ID: ID}, {$set: {
             nombre: nombre,
             direccion: direccion,
             telefono: telefono
@@ -125,7 +124,7 @@ const proveedorDelete = async(req, res) => {
     let mensaje = 'La eliminiación se efectuó exitosamente.'
 
     try{
-        const permiso = await Proveedor.deleteOne({_id: _id})
+        const permiso = await Proveedor.deleteOne({ID: ID})
     }
     catch(error){
         mensaje = 'Se presentaron problemas en la eliminación.'
