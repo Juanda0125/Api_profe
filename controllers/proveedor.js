@@ -66,7 +66,6 @@ const proveedorPost = async(req, res) => {
     })
 }
 
-//Juan Sebastián Granada
 
 //Modifcación
 const permisoPut1 = async(req, res = response) => {
@@ -89,7 +88,7 @@ const permisoPut1 = async(req, res = response) => {
 
 
 
-const proveedorPut = async(req, res) => {
+const proveedorPut = async(req, res, response) => {
 
     const {_id, ID, nombre, direccion, telefono} = req.body
 
