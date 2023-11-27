@@ -119,7 +119,7 @@ const proveedorPut = async(req, res, response) => {
 const proveedorDelete = async(req, res) => {
 
 
-    const {_id} = req.body
+    const {ID} = req.query
     let mensaje = 'La eliminiación se efectuó exitosamente.'
 
     try{
